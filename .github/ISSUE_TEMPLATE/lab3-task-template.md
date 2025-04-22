@@ -7,8 +7,6 @@ assignees: ''
 
 ---
 
-Title: "[TASK]<brief task description>"
-
 ## Description
 <!-- clear & concise description of task -->
 
