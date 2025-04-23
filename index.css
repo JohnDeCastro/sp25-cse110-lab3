@@ -2,6 +2,10 @@
     --main-bg-color: hsl(200, 80%, 90%); /* CSS var & fallback req */
 }
 
+*{
+    box-sizing: border-box; /*universal selector*/
+}
+
 body{
     background-color: var(--main-bg-color, lightblue); /*background color req*/
     font-family: 'Roboto', sans-serif;
@@ -10,7 +14,7 @@ body{
     padding: 0;
 }
 
-header, nav, main, footer{
+header, nav, main, footer{ /*selector list*/
     margin-top: 10px;  /*box model - margin longhand req*/
     margin-bottom: 10px;
     margin-left: 20px;
@@ -20,13 +24,21 @@ header, nav, main, footer{
     border-radius: 10px; /*border-radius req*/
 }
 
-h1{
+h1{ /*element selector*/
     color: rgb(34, 139, 230); /*color in rgb req*/
 }
 
 h2{
     color: #FF5733; /*color in hex req*/
     text-decoration: underline; /*text-decoration req*/
+}
+
+h2 ~ p{ /*gen sibling combinator*/
+    font-weight: bold;
+}
+
+h2 + p{ /*adj sibling cominator*/
+    color: green;
 }
 
 h3{
@@ -36,6 +48,10 @@ h3{
 p{
     color: orange; /*color via name req*/
     text-align: left; /*text styling - text-align req*/
+}
+
+p.note{ /*combining two selectors*/
+    font-size: 18px;
 }
 
 a:hover{
@@ -50,11 +66,17 @@ footer{
     padding-left: 20px;
 }
 
-nav ul{
+nav ul{ /* descendant combinator*/
     display: flex;
     justify-content: space-around; /*spaces items evenely for flexbox*/
     align-items: center; /*vertically centers for flexbox*/
     flex-direction: row; /*3rd flex req*/
+}
+
+nav{ /*nested selectors*/
+    ul{
+        list-style: none;
+    }
 }
 
 nav li{
@@ -68,7 +90,7 @@ header{
     background-color: lightgray; /*colors header lightgray*/
 }
 
-button:active{
+button:active{ /*pseudo class selector*/
     background-color: darkgray; /*pseudo class :active req*/
 }
 
@@ -79,6 +101,7 @@ nav{
     align-items: center;
 }
 
+/*child combinator*/
 div > section{ /*media section or other multi-column area*/
     display: grid;
     grid-template-columns: 1fr 1fr; /*two column grid*/
@@ -102,4 +125,22 @@ img{
     div > section{
         grid-template-columns: 1fr; /*grid stacks for small screens*/
     }
+}
+
+.note{ /*class selector*/
+    color: blue;
+    font-style: italic; 
+}
+
+#attendance{ /*id selector*/
+    background-color: lightyellow;
+}
+
+input[type="checkbox"]{ /*attribute selector*/
+    margin-right: 10px;
+    transform: Scale(1.2); /*makes checkbox larger*/
+}
+
+section:has(video){ /*new selector :has()*/
+    border: 2px dashed orange;
 }
