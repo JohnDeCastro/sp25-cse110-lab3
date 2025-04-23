@@ -1,0 +1,105 @@
+:root{
+    --main-bg-color: hsl(200, 80%, 90%); /* CSS var & fallback req */
+}
+
+body{
+    background-color: var(--main-bg-color, lightblue); /*background color req*/
+    font-family: 'Roboto', sans-serif;
+    color: #333; /*hex color req*/
+    margin: 0;
+    padding: 0;
+}
+
+header, nav, main, footer{
+    margin-top: 10px;  /*box model - margin longhand req*/
+    margin-bottom: 10px;
+    margin-left: 20px;
+    margin-right: 20px;
+    padding: 10px 15px; /*box model - padding shorthand req*/
+    border: 2px solid black; /*box model - border-style, border-color, border-width req*/
+    border-radius: 10px; /*border-radius req*/
+}
+
+h1{
+    color: rgb(34, 139, 230); /*color in rgb req*/
+}
+
+h2{
+    color: #FF5733; /*color in hex req*/
+    text-decoration: underline; /*text-decoration req*/
+}
+
+h3{
+    color: hsl(120, 70%, 40%); /*color in hsl req*/
+}
+
+p{
+    color: orange; /*color via name req*/
+    text-align: left; /*text styling - text-align req*/
+}
+
+a:hover{
+    color: red; /*pseudo class :hover req*/
+}
+
+footer{
+    color: color-mix(in srgb, red 50%, blue 50%); /*wider-gamut color / color-mix req*/
+    padding-top: 10px; /*padding long hand req*/
+    padding-right: 20px;
+    padding-bottom: 10px;
+    padding-left: 20px;
+}
+
+nav ul{
+    display: flex;
+    justify-content: space-around; /*spaces items evenely for flexbox*/
+    align-items: center; /*vertically centers for flexbox*/
+    flex-direction: row; /*3rd flex req*/
+}
+
+nav li{
+    display: inline-block; /*display req 1 of 2*/
+    margin-right: 15px; /*spaxcing between nav links*/
+}
+
+header{
+    position: sticky; /*position req*/
+    top: 0; /*stick to top of wepage*/
+    background-color: lightgray; /*colors header lightgray*/
+}
+
+button:active{
+    background-color: darkgray; /*pseudo class :active req*/
+}
+
+nav{
+    position: relative; /*position req*/
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+div > section{ /*media section or other multi-column area*/
+    display: grid;
+    grid-template-columns: 1fr 1fr; /*two column grid*/
+    gap: 20px; /*space between columns*/
+}
+
+img{
+    display: block; /*display req 2 of 2*/
+    width: 80%; /*relative unit*/
+    max-width: 400px; /*absolute unit*/
+    min-width: 150px; /*absolute unit*/
+    height: auto;/*realtive unit*/
+    margin: 1em auto;/*relative unit & margin auto & margin shorthand req*/
+    padding: 10px;/*absolute unit*/
+}
+
+@media(max-width: 768px){
+    nav ul{
+        flex-direction:column; /*changes to vertical layout on small screens*/
+    }
+    div > section{
+        grid-template-columns: 1fr; /*grid stacks for small screens*/
+    }
+}
